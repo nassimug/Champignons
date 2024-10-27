@@ -1,45 +1,17 @@
-# Is this Mushroom Edible ?
-<p><strong>
-The purpose of this project is to learn, by maching learning, to recognize if a mushroom
-is edible or poisonous depending on its color, shape and texture of its cuticle.
-To do this, we will rely on the site: <br>
-  https://ultimate-mushroom.com/.
-</strong></p>
-<br/>
+Ce champignon est-il comestible ?
+<p><strong> L'objectif de ce projet est d'apprendre, grâce au machine learning, à reconnaître si un champignon est comestible ou toxique en fonction de sa couleur, de sa forme et de la texture de sa cuticule. Pour ce faire, nous nous baserons sur le site : <br> https://ultimate-mushroom.com/. </strong></p> <br/>
+Collecte de données avec Python
+<p>Pour la première partie, nous allons collecter toutes les données du site <strong>Ultimate Mushroom</strong> et les sauvegarder dans un fichier CSV. Pour cela, j'ai créé le fichier Python ShroomLearning.py qui va parcourir la page principale du site, analyser chaque lien, et collecter les données nécessaires pour l'apprentissage, avant de les sauvegarder dans data/champignons.csv</p> <br/>
+Manipulation des données
+<p>Dans cette partie, nous allons convertir les données CSV dans un format compatible avec notre modèle d'IA, afin de faciliter son apprentissage. Nous utiliserons la bibliothèque <i>'pandas'</i> en Python pour manipuler nos données en utilisant un DataFrame. Tout d'abord, nous configurerons notre DataFrame et effectuerons des calculs préliminaires pour garantir l'exactitude des données. Ensuite, nous convertirons les descriptions de couleur en codes RGB et catégoriserons toutes les formes et textures en utilisant un encodage binaire (0 ou 1), afin de préparer les données selon les exigences du modèle. Le script <strong>2ejalon.ipynb</strong> est chargé de réaliser ces opérations.</p> <br/>
+Apprentissage et optimisation
+<p>Enfin, nous entamerons le processus d'entraînement en utilisant la bibliothèque scikit-learn. Nous testerons deux types de modèles : <strong>Support Vector Machine (SVM)</strong> et <strong>Arbre de Décision</strong>. Pour chaque modèle, nous effectuerons des sessions d'entraînement avec et sans mise à l'échelle pour comparer les différences de prédictions à l'aide de scores de précision et de matrices de confusion. Cette approche nous aidera à comprendre l'importance d'éviter le surapprentissage de nos modèles. Le même fichier mentionné précédemment, <strong>2ejalon.ipynb</strong>, est chargé de ce processus d'apprentissage. Après avoir terminé l'entraînement, nous utiliserons la bibliothèque <i>'joblib'</i> pour sauvegarder nos modèles entraînés pour une utilisation future.</p> <br/>
+Lancement et test de l'application
+<p>Nous commençons par configurer un <strong>framework Node.js Express</strong> et créons une page web simple avec un formulaire HTML <strong>formulaire.html</strong>. Nous utilisons ensuite le fichier <strong>index.js</strong> pour gérer les requêtes serveur et implémenter le code <strong>script/predict.py</strong> pour générer des prédictions à l'aide de l'un des deux modèles.</p> <br/>
+Comment tester le projet
+<ol> <li>Clonez ou téléchargez le fichier zip depuis le dépôt git.</li> <li>Installez Node.js sur votre appareil</li> <li>Ouvrez un terminal dans le répertoire du ProjetExpress</li> <li>Pour lancer le serveur local, tapez : "node index.js"</li> <li>Allez sur votre navigateur préféré et entrez le lien suivant : http://localhost:8080/form</li> <li>Remplissez les informations du champignon que vous souhaitez tester</li> <li>Soumettez et découvrez le résultat</li> </ol> <strong>Il est important de noter que les résultats peuvent ne pas être toujours précis, car le modèle d'IA utilisé dans ce processus est relativement basique.</strong>
 
-## Data collecting with python
-<p>For the first part, we are going to collect all the data of the website <strong>Ultimate Mushroom</strong> and then save it on a csv file.
-  To do so, I created the python file ShroomLearning.py which will go to the main page of the website, parse every link on it, analyse them and collect the data needed for the learning to then save it
- on data/champignons.csv</p>
-<br/>
 
-## Data manipulation
-<p>In this part, we will convert the CSV data into a format that is compatible with our AI model, facilitating its learning process.
-  We'll utilize the <i>'pandas'</i> library in Python to manipulate our data using a DataFrame. Initially, we will configure our DataFrame and perform preliminary 
-  calculations to ensure accuracy. Then, we will convert color descriptions into RGB codes and categorize all shapes and surfaces using binary encoding (0 or 1), 
-  thus preparing the data for the model's requirements. The script <strong>2ejalon.ipynb</strong> is responsible for performing these operations </p>
-<br/>
 
-## Learning and shaping
-<p>Finally, we will commence the training process using the scikit-learn library. We will experiment with two types of models: <strong>Support Vector Machine (SVM)</strong> and <strong>Decision Tree</strong>.
-  For each model, we will conduct training sessions both with and without a scaler to compare prediction differences using accuracy scores and confusion matrices.
-  This approach will help us understand the importance of avoiding overfitting in our models.The same file mentioned earlier, <strong>2ejalon.ipynb</strong>, is responsible for this learning process. 
-  After completing the training, we will use the <i>'joblib'</i> library to save our trained models for future use. </p>
-<br/>
 
-## Launching and testing the APP
-<p>We begin by setting up a <strong>Node.js Express framework</strong> and create a straightforward webpage using HTML <strong>formulaire.html</strong>.
-  We then utilize <strong>the index.js</strong> file to handle server requests and implement the <strong>script/predict.py</strong> code to generate predictions using one of the two models.</p>
-<br/>
 
-## How to try the project
-<ol>
-  <li>Clone or Download zip file from the git repository.</li>
-  <li>Install node.js in your device</li>
-  <li>Launch a CMD inside the directory of the ProjetExpress</li>
-  <li>To launch the local server type : "node index.js"</li>
-  <li>Go to your favorite browser and enter this link : http://localhost:8080/form</li>
-  <li>Fill the informations of the mushroom you want to test</li>
-  <li>Submit, enjoy the result</li>
-</ol>
-<strong>It is important to note that the results may not always be accurate, as the AI model used in this process is relatively basic.</strong>
